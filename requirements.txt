@@ -1,0 +1,4 @@
+rank_bm25
+sentence-transformers
+faiss-cpu
+streamlit

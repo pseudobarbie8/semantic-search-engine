@@ -1,13 +1,22 @@
 # semantic-search-engine
 
-Hybrid search (BM25 + dense embeddings + reranker) over arXiv abstracts, with a small web UI.
+Hybrid search (BM25 + dense embeddings + reranker) over a document collection, with a small web UI.
 
 ```bash
 pip install -r requirements.txt
-python build_index.py --data data/arxiv_abstracts.jsonl
-python eval.py            # compares bm25 / dense / hybrid
+python build_index.py --data data/sample.jsonl
+python eval.py --queries data/sample_queries.jsonl    # compares bm25 / dense / hybrid / rerank
 streamlit run app.py
 ```
+
+## Data formats
+
+```json
+{"id": "d1", "title": "...", "text": "..."}
+{"query": "...", "relevant": "d1"}
+```
+
+`data/sample.jsonl` is 8 toy documents, enough to check the pipeline runs. For real numbers, index a real corpus (arXiv abstracts, a Wikipedia subset) and write your own labelled queries.
 
 ## Results
 
@@ -18,20 +27,20 @@ streamlit run app.py
 | Hybrid | - | - |
 | Hybrid + rerank | - | - |
 
-Fill this in after running `eval.py`.
+Fill this in from `eval.py` on a real corpus.
 
 ## How it works
 
 - BM25 via `rank_bm25`
-- Dense vectors with sentence-transformers, stored in FAISS
-- Scores merged with reciprocal rank fusion, top results reranked with a cross-encoder
+- Dense vectors with sentence-transformers (`all-MiniLM-L6-v2`), stored in FAISS
+- BM25 and dense rankings merged with reciprocal rank fusion, then reranked with a cross-encoder
 
 ## Layout
 
 ```
-build_index.py   indexing
-search.py        retrieval + fusion + rerank
-eval.py          metrics
+build_index.py   embed docs, write FAISS index
+search.py        bm25, dense, hybrid, rerank
+eval.py          Recall@10 and MRR
 app.py           Streamlit UI
 ```
 

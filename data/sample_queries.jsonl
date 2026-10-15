@@ -1,0 +1,6 @@
+{"query": "how do transformers decide which words matter to each other", "relevant": "d1"}
+{"query": "cheap way to fine-tune an LLM with few trainable parameters", "relevant": "d2"}
+{"query": "embedding similarity search for documents", "relevant": "d3"}
+{"query": "term frequency inverse document frequency ranking", "relevant": "d4"}
+{"query": "grounding language model answers in retrieved sources", "relevant": "d7"}
+{"query": "turning audio into text", "relevant": "d8"}

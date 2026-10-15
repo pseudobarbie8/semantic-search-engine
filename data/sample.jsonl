@@ -1,0 +1,8 @@
+{"id": "d1", "title": "Attention mechanisms", "text": "Transformers use self-attention to weigh the relevance of every token to every other token in a sequence."}
+{"id": "d2", "title": "Low-rank adaptation", "text": "LoRA fine-tunes large language models by training small low-rank matrices while the original weights stay frozen."}
+{"id": "d3", "title": "Dense retrieval", "text": "Dense retrievers map queries and documents into a shared vector space and rank documents by embedding similarity."}
+{"id": "d4", "title": "BM25 ranking", "text": "BM25 is a sparse lexical ranking function based on term frequency, inverse document frequency and document length."}
+{"id": "d5", "title": "Gradient descent", "text": "Gradient descent minimizes a loss function by repeatedly stepping the parameters against the gradient."}
+{"id": "d6", "title": "Convolutional networks", "text": "Convolutional neural networks learn spatial filters and are widely used for image classification."}
+{"id": "d7", "title": "Retrieval-augmented generation", "text": "RAG systems retrieve relevant passages and feed them to a language model so answers are grounded in sources."}
+{"id": "d8", "title": "Speech recognition", "text": "Modern speech recognition models transcribe audio into text using encoder-decoder transformers."}
